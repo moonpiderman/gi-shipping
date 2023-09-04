@@ -56,6 +56,7 @@ subprojects {
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.springframework.kafka:spring-kafka")
         implementation("org.springframework.boot:spring-boot-starter-webflux")
+        implementation("org.springframework.boot:spring-boot-starter-data-redis")
         implementation("org.projectreactor:reactor-spring:1.0.1.RELEASE")
         runtimeOnly("com.mysql:mysql-connector-j")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -73,7 +74,7 @@ subprojects {
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {
-            freeCompilerArgs += "-Xjsr305=strict"
+            freeCompilerArgs = listOf("-Xjsr305=strict")
             jvmTarget = "17"
         }
     }
